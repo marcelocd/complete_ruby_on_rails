@@ -18,20 +18,45 @@ def mod a, b
 	a.to_f % b.to_f
 end
 
-print 'Please, enter your first number: '
+puts 'Simple Calculator\n'
 
-first_number = gets.chomp
+puts 'Please, choose one of the following options:'
+puts '1) ADD (a + b)'
+puts '2) SUBTRACT (a - b)'
+puts '3) MULTIPLY (a * b)'
+puts '4) DIVIDE (a / b)'
+puts '5) MOD (a % b)'
+puts '6) EXIT'
 
-print 'Please, enter your second number: '
+user_entry = gets.chomp.to_i
 
-second_number = gets.chomp
+if user_entry == 6
+	return 0
+end
 
-puts "The first number added to the second number: #{add(first_number, second_number)}"
+while user_entry >= 6 || user_entry < 1
+	print 'Choose an integer from 1 to 6: '
+	user_entry = gets.chomp
+end
 
-puts "The first number subtracted from the second number: #{subtract(second_number, first_number)}"
+print 'Please, enter a value for a: '
 
-puts "The first number multiplied by the second number: #{multiply(first_number, second_number)}"
+a = gets.chomp
 
-puts "The first number divided by the second number: #{divide(first_number, second_number)}"
+print 'Please, enter a value for b: '
 
-puts "The first number mod the second number: #{mod(first_number, second_number)}"
+b = gets.chomp
+
+if user_entry == 1
+	puts "#{a} + #{b} = #{add(a, b)}"
+elsif user_entry == 2
+	puts "#{a} - #{b} = #{subtract(a, b)}"
+elsif user_entry == 3
+	puts "#{a} * #{b} = #{multiply(a, b)}"
+elsif user_entry == 4
+	puts "#{a} / #{b} = #{divide(a, b)}"
+elsif user_entry == 5
+	puts "#{a} % #{b} = #{mod(a, b)}"
+else
+	puts "Option does not exist."
+end
